@@ -1,0 +1,9 @@
+# 手机端（桥接）：把电脑图库显示在手机 DSH 的侧栏
+- id: lan-gallery
+  name: dsh-lan-gallery
+  config:
+    role: bridge
+    sourceUrl: "http://10.253.77.216:8765"   # 换成你电脑的局域网地址
+    token: "REPLACE_WITH_RANDOM_TOKEN"       # 与电脑端完全一致
+    title: "电脑图库"
+    order: 11
