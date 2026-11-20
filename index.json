@@ -1,0 +1,59 @@
+{
+  "format": 1,
+  "title": {
+    "zh": "Mr-Y-LYB 的 DSH 插件",
+    "en": "Mr-Y-LYB DSH Plugins"
+  },
+  "description": {
+    "zh": "自用插件索引。加入这个索引源后，在「发现」里就能看到并安装下面列出的插件。",
+    "en": "Personal DSH plugin index."
+  },
+  "metadata": {
+    "categories": {},
+    "labels": {},
+    "sortKeys": {}
+  },
+  "plugins": [
+    {
+      "name": "dsh-lan-gallery",
+      "title": {
+        "zh": "电脑图库",
+        "en": "LAN Gallery"
+      },
+      "description": {
+        "zh": "在手机 DSH 的侧栏里看电脑出的图。电脑端当图库源（绑 0.0.0.0 提供只读接口），手机端当同源桥接面板（走 /api/lan-gallery/*，不受跨域与 CSP 限制）。",
+        "en": "Browse images generated on your PC from the DSH sidebar on your phone."
+      },
+      "author": "Mr-Y-LYB",
+      "homepage": "https://github.com/Mr-Y-LYB/dsh-lan-gallery",
+      "repository": {
+        "url": "https://github.com/Mr-Y-LYB/dsh-lan-gallery"
+      },
+      "metadata": {
+        "keywords": [
+          "gallery",
+          "lan",
+          "image",
+          "mobile",
+          "sidebar"
+        ],
+        "labels": [],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1795155220,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/Mr-Y-LYB/dsh-lan-gallery",
+            "commit": "904330b0bf7d5c7de58d18f0ad78e0fcf8ea1400"
+          },
+          "engines": {
+            "dsh": ">=0.2.0"
+          }
+        }
+      ]
+    }
+  ]
+}
