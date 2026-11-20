@@ -19,6 +19,9 @@
         # 电脑端
         port: 8765
         bind: "0.0.0.0"
+        # 缩略图：用本机 Python(Pillow) 生成 512px JPEG，手机上才加载得动
+        pythonPath: "E:/AI/ComfyUI/ComfyUI_windows_portable/python_embeded/python.exe"
+        thumbSize: 512
         # 外观
         title: "电脑图库"
         order: 11
