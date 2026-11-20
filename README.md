@@ -46,13 +46,27 @@ dsh plugin --profile web add github:<你的用户名>/dsh-lan-gallery
 
 ### 手机端（DSH Go）
 
-在 App 的插件管理里添加同一个包（或把 `npm pack` 出来的 `.tgz` 传进手机安装）。安装完同样需要重启 App。
+DSH Go 的插件页只认**市场索引**，没有"填包名/地址"的入口，所以要用**自定义索引源**：
 
-> 不同版本的 DSH Go 安装入口不完全一样：有的直接填包名/仓库地址，有的只认市场索引。如果你的版本只认索引，优先用本地 `.tgz`。
+1. `设置 › 插件 › 插件市场` → 底部「**添加索引源**」
+2. 填入这个 JSON 的 URL（把主机换成运行图库服务的那台电脑）：
+
+   ```
+   http://26.72.39.30:8765/index.json
+   ```
+
+   也可以托管在 GitHub / jsDelivr 上，格式见仓库根目录的 `index.json`（遵循 `@deepseek-ai/dsh-plugin-market-index` 的 format 1）。
+3. 添加后到「发现」页签，能看到「**电脑图库**」，点「安装到…」
+4. 装完重启引擎
+
+> 安装源是 `git+https://github.com/<owner>/<repo>.git#<commit>`，安装时手机会直接访问 GitHub，需要手机能连上 github.com。
 
 ## 配置
 
 配置写在 profile 的 `cordis.patch.yml`。装完插件后追加：
+
+> **开箱默认值**：包内 `cordis.patch.yml` 已经写好 `role: auto`。插件启动时判断——本机存在图库目录（`~/.dsh/qwen-studio/images`）就当**电脑端**（忽略下面这些手机端字段），否则当**手机端**。所以同一个包两端都装，不用改角色。
+> 仓库里预填的 `sourceUrl` / `token` 是本机自用值，换设备或换网络时改这两行即可；如果不想用密码，把两边 `token` 都留空（那样同网任何设备都能读图库）。
 
 ### 电脑端
 
