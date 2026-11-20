@@ -1,20 +1,24 @@
 # dsh-lan-gallery 的加载层。
 #
 # role 说明：
-#   auto    默认。给了 sourceUrl 就当手机端桥接；否则本机有图库目录就当电脑端图库源。
-#   source  电脑端：对外提供图库（绑 0.0.0.0，手机才能连）
-#   bridge  手机端：把电脑图库代理到自己的同源路径下，面板因此不受跨域与 CSP 限制
+#   auto    默认。本机存在图库目录（~/.dsh/qwen-studio/images）就当电脑端图库源，
+#           否则当手机端桥接。同一个包两端通用，不需要改这里。
+#   source  强制电脑端：对外提供图库（绑 0.0.0.0，手机才连得上）
+#   bridge  强制手机端：把电脑图库代理到同源路径 /api/lan-gallery/*
+#
+# 下面 sourceUrl / token 只在手机端生效（电脑端 auto 判定为 source 会忽略它们）。
+# 若要给别的设备用，把 sourceUrl 改成那台电脑的地址、token 改成两边一致的随机串。
 - insert:
     - id: lan-gallery
       name: dsh-lan-gallery
       config:
         role: auto
+        # 手机端：电脑在图库服务上的地址
+        sourceUrl: "http://26.72.39.30:8765"
+        token: "PdO4zVIZqf45-nZ1"
         # 电脑端
         port: 8765
         bind: "0.0.0.0"
-        token: ""
-        # 手机端（把 IP 换成你电脑的局域网地址）
-        sourceUrl: ""
         # 外观
         title: "电脑图库"
         order: 11
