@@ -40,9 +40,13 @@
     }
   },
   "peerDependencies": {
+    "@deepseek-ai/schemastery": ">=3.18.0",
     "react": ">=18.2.0 <19"
   },
   "peerDependenciesMeta": {
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    },
     "react": {
       "optional": true
     }
