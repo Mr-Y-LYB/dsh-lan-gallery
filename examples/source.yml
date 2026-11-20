@@ -1,0 +1,12 @@
+# 电脑端（图库源）：把本机创作图库开放给手机
+- id: lan-gallery
+  name: dsh-lan-gallery
+  config:
+    role: source
+    port: 8765
+    bind: "0.0.0.0"
+    token: "REPLACE_WITH_RANDOM_TOKEN"
+    # 默认 ~/.dsh/qwen-studio/images
+    # galleryDir: "C:/Users/you/.dsh/qwen-studio/images"
+    title: "电脑图库"
+    order: 11
