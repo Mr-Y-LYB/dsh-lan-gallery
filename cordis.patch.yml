@@ -1,0 +1,20 @@
+# dsh-lan-gallery 的加载层。
+#
+# role 说明：
+#   auto    默认。给了 sourceUrl 就当手机端桥接；否则本机有图库目录就当电脑端图库源。
+#   source  电脑端：对外提供图库（绑 0.0.0.0，手机才能连）
+#   bridge  手机端：把电脑图库代理到自己的同源路径下，面板因此不受跨域与 CSP 限制
+- insert:
+    - id: lan-gallery
+      name: dsh-lan-gallery
+      config:
+        role: auto
+        # 电脑端
+        port: 8765
+        bind: "0.0.0.0"
+        token: ""
+        # 手机端（把 IP 换成你电脑的局域网地址）
+        sourceUrl: ""
+        # 外观
+        title: "电脑图库"
+        order: 11
