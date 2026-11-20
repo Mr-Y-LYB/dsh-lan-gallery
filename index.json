@@ -42,12 +42,12 @@
       },
       "versions": [
         {
-          "version": "0.2.0",
-          "publishTimestamp": 1795165864,
+          "version": "0.2.1",
+          "publishTimestamp": 1795166382,
           "source": {
             "type": "git",
             "url": "https://github.com/Mr-Y-LYB/dsh-lan-gallery",
-            "commit": "77f6f9add2793b1dc93345cb40f0122e33454463"
+            "commit": "ce2bd0fa289a846db03067de99e76af5620388a7"
           },
           "engines": {
             "dsh": ">=0.2.0"
