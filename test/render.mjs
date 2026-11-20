@@ -123,6 +123,26 @@ console.log("注册项:", registered.map((r) => `${r.options.name}:${r.options.k
 check("PanelShell()", () => mod.__Shell());
 check("Panel()", () => mod.__Panel());
 
+// ---- 结构断言：确认关键节点真的生成了，而不是只「没抛错」
+check("Panel 结构完整", () => {
+  const tree = mod.__Panel();
+  const classes = new Set();
+  (function walk(node) {
+    if (!node || typeof node !== "object") return;
+    if (Array.isArray(node)) {
+      node.forEach(walk);
+      return;
+    }
+    if (node.props && typeof node.props.className === "string") classes.add(node.props.className);
+    if (node.children) walk(node.children);
+  })(tree);
+  const required = ["lg-root", "lg-head", "lg-body"];
+  const missing = required.filter((name) => !classes.has(name));
+  if (missing.length) throw new Error("缺少节点：" + missing.join(", "));
+  const skeletons = [...classes].filter((name) => name === "lg-skel").length;
+  return "根/顶栏/主体齐全，骨架 " + (skeletons || "—");
+});
+
 console.log("");
 for (const row of results) {
   console.log(`  ${row.ok ? "PASS" : "FAIL"}  ${row.name}  —  ${row.detail}`);
