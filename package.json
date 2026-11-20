@@ -1,6 +1,6 @@
 {
   "name": "dsh-lan-gallery",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "在手机上的 DeepSeek Harness 侧栏里看电脑出图：一个插件，电脑端当图库源，手机端当同源桥接面板。",
   "type": "module",
   "main": "lib/index.js",
